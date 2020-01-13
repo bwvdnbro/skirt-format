@@ -1,5 +1,5 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+cd $GITHUB_WORKSPACE
+clang-format-9 -i *.cpp
+git diff
