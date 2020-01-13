@@ -1,10 +1,9 @@
 name: "SKIRT format"
 description: "Auto-format the SKIRT code."
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  private_key:  # id of input
+    description: 'Deployment key used to commit to the repository.'
     required: true
-    default: 'World'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
