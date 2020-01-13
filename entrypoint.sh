@@ -2,6 +2,7 @@
 
 private_key=$1
 github_ref=$2
+echo "$private_key"
 echo "$github_ref"
 cd "$GITHUB_WORKSPACE"
 clang-format-9 -i *.cpp
