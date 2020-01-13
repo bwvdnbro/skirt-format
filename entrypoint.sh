@@ -14,11 +14,9 @@ wc key.txt
 md5sum key.txt
 echo "Ref: $github_ref"
 echo "Origin: $github_origin"
-eval `ssh-agent -t 60 -s`
 mkdir -p ~/.ssh/
 ssh-keyscan github.com >> ~/.ssh/known_hosts
-echo "$INPUT_PRIVATE_KEY" | ssh-add -
-echo "$deploy_key" | ssh-add -
+mv key.txt ~/.ssh/id_rsa
 echo "TEST SSH:"
 ssh -T git@github.com
 echo "$INPUT_PRIVATE_KEY" | ssh-add -
@@ -33,4 +31,3 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
   echo "$private_key" | ssh-add -
   git push origin "$github_ref"
 fi
-ssh-agent -k
