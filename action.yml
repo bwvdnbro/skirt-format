@@ -4,6 +4,12 @@ inputs:
   private_key:  # id of input
     description: 'Deployment key used to commit to the repository.'
     required: true
+  github_ref:
+    description: 'Branch to which automatic commits should be pushed.'
+    required: true
+  github_origin:
+    description: 'URL of the remote repository.'
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -11,5 +17,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ github.ref }}
-    - ${{ github.origin }}
+    - ${{ private_key }}
+    - ${{ github_ref }}
+    - ${{ github_origin }}

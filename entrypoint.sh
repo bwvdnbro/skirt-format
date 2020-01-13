@@ -1,7 +1,8 @@
 #!/bin/sh -l
 
-github_ref=$1
-github_origin=$2
+private_key=$1
+github_ref=$2
+github_origin=$3
 echo "$github_ref"
 echo "$github_origin"
 cd "$GITHUB_WORKSPACE"
