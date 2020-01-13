@@ -3,8 +3,9 @@
 private_key=$1
 github_ref=$2
 github_origin=$3
-echo "$INPUT_PRIVATE_KEY" key.txt
+echo "$INPUT_PRIVATE_KEY" > key.txt
 wc key.txt
+cat key.txt
 echo "Ref: $github_ref"
 echo "Origin: $github_origin"
 eval `ssh-agent -t 60 -s`
