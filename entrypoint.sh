@@ -4,16 +4,22 @@ private_key=$1
 github_ref=$2
 github_origin=$3
 echo "$INPUT_PRIVATE_KEY" > key.txt
+echo "$INPUT_GITHUB_REF"
+echo "$INPUT_GITHUB_ORIGIN"
+echo "$GITHUB_REF"
+echo "$GITHUB_SHA"
+echo "$GITHUB_REPOSITORY"
+echo "$ACTIONS_RUNTIME_URL"
 wc key.txt
 md5sum key.txt
 echo "Ref: $github_ref"
 echo "Origin: $github_origin"
 eval `ssh-agent -t 60 -s`
-echo "$INPUT_PRIVATE_KEY" | ssh-add -
 mkdir -p ~/.ssh/
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 git config --local user.email "autoformat@skirt"
 git config --local user.name "skirt-format"
+echo "$INPUT_PRIVATE_KEY" | ssh-add -
 git clone "$github_origin" repo
 git checkout "$github_ref"
 cd repo
