@@ -1,4 +1,4 @@
-FROM skirtformat:latest
+FROM bwvdnbro/skirtformat:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
