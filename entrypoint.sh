@@ -18,6 +18,7 @@ eval `ssh-agent -t 60 -s`
 mkdir -p ~/.ssh/
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 echo "$INPUT_PRIVATE_KEY" | ssh-add -
+echo "$deploy_key" | ssh-add -
 echo "TEST SSH:"
 ssh -T git@github.com
 echo "$INPUT_PRIVATE_KEY" | ssh-add -
