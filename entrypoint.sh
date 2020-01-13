@@ -17,6 +17,7 @@ cd repo
 clang-format-9 -i *.cpp
 if ! git diff --no-ext-diff --quiet --exit-code; then
   git commit -am "Autoformatting."
+  echo "$private_key" | ssh-add -
   git push origin "$github_ref"
 fi
 ssh-agent -k
