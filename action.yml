@@ -4,12 +4,6 @@ inputs:
   private_key:  # id of input
     description: 'Deployment key used to commit to the repository.'
     required: true
-  github_ref:
-    description: 'Branch that triggered the action.'
-    required: true
-  github_origin:
-    description: 'URL of the repository.'
-    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -17,4 +11,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ github.ref }}
+    - ${{ github.origin }}

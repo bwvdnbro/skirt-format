@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+github_ref=$1
+github_origin=$2
 echo "$github_ref"
 echo "$github_origin"
 cd "$GITHUB_WORKSPACE"
