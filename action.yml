@@ -1,5 +1,8 @@
 name: "SKIRT format"
 description: "Auto-format the SKIRT code."
+outputs:
+  status:
+    description: 'Status code that indicates if formatting was performed.'
 runs:
   using: 'docker'
   image: 'Dockerfile'
