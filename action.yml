@@ -17,6 +17,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ private_key }}
-    - ${{ github_ref }}
-    - ${{ github_origin }}
+    - ${{ inputs.private_key }}
+    - ${{ inputs.github_ref }}
+    - ${{ inputs.github_origin }}
