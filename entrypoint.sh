@@ -20,7 +20,8 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 git config --local user.email "autoformat@skirt"
 git config --local user.name "skirt-format"
 echo "$INPUT_PRIVATE_KEY" | ssh-add -
-git clone "$github_origin" repo
+ssh -T git@github.com
+git clone git@github.com:"$GITHUB_REPOSITORY".git repo
 git checkout "$github_ref"
 cd repo
 clang-format-9 -i *.cpp
